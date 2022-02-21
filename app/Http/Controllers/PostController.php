@@ -11,7 +11,7 @@ use App\Models\Comment;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::all();
+        $posts = Post::latest('updated_at')->get();
 
         return view('posts.index', compact('posts'));
     }
@@ -36,7 +36,7 @@ class PostController extends Controller
     public function show($id) {
         $post = Post::find($id);
 
-        $comments = Comment::where('post_id', $id)->get();
+        $comments = Comment::where('post_id', $id)->orderBy('created_at', 'desc')->get();
 
         return view('posts.show', compact('post', 'comments'));
     }

@@ -47,7 +47,7 @@ class CommentController extends Controller
         $comment->save();
 
         $post = Post::find($request->post_id);
-        $comments = Comment::where('post_id', $request->post_id)->get();
+        $comments = Comment::where('post_id', $request->post_id)->latest()->get();
 
         $request->session()->regenerateToken();
 
