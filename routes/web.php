@@ -25,6 +25,7 @@ Auth::routes();
 Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/posts/search', 'PostController@search')->name('posts.search');
     Route::resource('posts', 'PostController');
-    Route::resource('comments', 'CommentController');
+    Route::resource('comments', 'CommentController', ['only' => ['store']]);
 });
