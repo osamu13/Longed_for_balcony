@@ -11,10 +11,16 @@
         <div class="card-body">
             <h4 class="card-title">タイトル:{{ $post->title }}</h4>
             <div class="d-flex">
-                <p class="card-text">投稿日：{{ $post->created_at }}</p>
-                <p class="card-text mx-4">投稿者：{{ $post->user->name }}</p>
+                <p class="card-text">投稿者：{{ $post->user->name }}</p>
+                <p class="card-text mx-md-3">投稿日：{{ $post->created_at }}</p>
+                <p class="card-text mx-md-3">更新日：{{ $post->updated_at }}</p>
             </div>
-            <h5 class="card-text content">{{ $post->content }}</h5>
+            <div class="d-lg-flex justify-content-center">
+                <div class="mb-4 col-lg-8">
+                    <img src="{{ '/storage/'.$post->image }}" alt="" class="post_img">
+                </div>
+                <h5 class="card-text content col-lg-4">{{ $post->content }}</h5>
+            </div>
             <div class="d-flex">
                 @if (Auth::id() === $post->user_id)
                 <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集する</a>
@@ -48,8 +54,8 @@
         <div class="card mb-3">
             <div class="card-header h5">投稿者：{{ $comment->user->name }}</div>
             <div class="card-body">
-                <p class="card-title">投稿日：{{ $comment->created_at }}</p>
-                <p class="card-text">{{ $comment->content }}</p>
+                <p class="card-title mb-4">投稿日：{{ $comment->created_at }}</p>
+                <h5 class="card-text">{{ $comment->content }}</h5>
             </div>
         </div>
         @endforeach
