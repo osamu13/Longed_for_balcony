@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\SearchRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Comment;
@@ -77,7 +77,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function search(Request $request)
+    public function search(SearchRequest $request)
     {
         $posts = Post::where('title', 'LIKE', '%'.$request->search.'%')
                        ->orWhere('content', 'LIKE', '%'.$request->search.'%')

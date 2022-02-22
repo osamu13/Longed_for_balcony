@@ -15,10 +15,13 @@
             <form action="{{ route('posts.search') }}" class="search-form mb-4" method="GET">
                 <div class="form-group has-feedback d-flex">
                     <input type="text" class="form-control" name="search" placeholder="search">
-              		<button class="btn btn-info btn-lg" type="submit">
+              		<button class="btn btn-dark btn-lg" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
             	</div>
+                @if ($errors->first('search'))
+                <p class="text-danger">※{{$errors->first('search')}}</p>
+                @endif
             </form>
             @if (isset($posts_result))
             <h5 class="m-0">{{ $posts_result }}</h5>
