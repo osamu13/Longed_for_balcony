@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::latest('updated_at')->get();
+        $posts = Post::latest('updated_at')->paginate(5);
 
         return view('posts.index', compact('posts'));
     }
@@ -43,7 +43,7 @@ class PostController extends Controller
     public function show($id) {
         $post = Post::find($id);
 
-        $comments = Comment::where('post_id', $id)->orderBy('created_at', 'desc')->get();
+        $comments = Comment::where('post_id', $id)->orderBy('created_at', 'desc')->paginate(10);
 
         return view('posts.show', compact('post', 'comments'));
     }
@@ -69,7 +69,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function destroy($id) {
+    public function destroy(Request $request,$id) {
         $post = Post::find($id);
 
         $post->delete();

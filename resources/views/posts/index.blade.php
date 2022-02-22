@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div>
-        <h2 class="catch_copy">ベランダ・バルコニー、オシャレできていますか？<br>投稿してみんなの意見をもらおう！</h2>
+        <h2 class="catch_copy">ベランダ・バルコニー、オシャレできていますか？<br>投稿して意見をもらおう！</h2>
     </div>
     <div class="my-4">
             <a href="{{ route('posts.create') }}" class="btn btn-primary">投稿したい人はこちらから！</a>
@@ -35,6 +35,7 @@
                 </div>
             </div>
             @endforeach
+            {{ $posts->links() }}
         </div>
     </div>
 </div>
