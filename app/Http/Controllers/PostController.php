@@ -7,6 +7,7 @@ use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\Comment;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -22,8 +23,14 @@ class PostController extends Controller
 
     public function store(PostRequest $request) {
         $post = new Post;
+
         //インスタンスの作成
         $post->title = $request->title;
+        // /storage/app/publicに画像を保存
+        $path = Storage::put('/public', $request->image);
+        //画像の名前をDBに入れる
+        $path = explode('/', $path);
+        $post->image = $path[1];
         $post->content = $request->content;
         $post->user_id = Auth::id();
 
