@@ -69,11 +69,23 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function destroy(Request $request,$id) {
+    public function destroy($id) {
         $post = Post::find($id);
 
         $post->delete();
 
         return redirect()->route('posts.index');
+    }
+
+    public function search(Request $request)
+    {
+        $posts = Post::where('title', 'LIKE', '%'.$request->search.'%')
+                       ->orWhere('content', 'LIKE', '%'.$request->search.'%')
+                       ->paginate(5);
+        
+        $posts_result = $request->search.' '.'の検索結果は'.$posts->total().'件です';
+        $search_query = $request->search;
+
+        return view('posts.index', compact('posts', 'posts_result', 'search_query'));
     }
 }
