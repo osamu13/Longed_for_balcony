@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     
+    <script src="https://kit.fontawesome.com/97f5cac552.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
