@@ -51,7 +51,7 @@ class CommentController extends Controller
 
         $request->session()->regenerateToken();
 
-        return view('posts.show', compact('post', 'comments'));
+        return redirect()->route('posts.show', compact('post', 'comments'));
     }
 
     /**
