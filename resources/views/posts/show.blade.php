@@ -9,7 +9,7 @@
         <div class="card-header bg-success text-white h2">このバルコニー・ベランダには何が合う？</div>
 
         <div class="card-body">
-            <h4 class="card-title">タイトル:{{ $post->title }}</h4>
+            <h4 class="card-title">{{ $post->title }}</h4>
             <div class="d-flex">
                 <p class="card-text">投稿者：{{ $post->user->name }}</p>
                 <p class="card-text mx-md-3">投稿日：{{ $post->created_at }}</p>
@@ -19,7 +19,10 @@
                 <div class="mb-4 col-lg-8">
                     <img src="{{ '/storage/'.$post->image }}" alt="" class="post_img">
                 </div>
-                <h5 class="card-text content col-lg-4">{{ $post->content }}</h5>
+                <div class="col-lg-4">
+                    <h4>内容</h4>
+                    <h5 class="card-text content">{{ $post->content }}</h5>
+                </div>
             </div>
             <div class="d-flex">
                 @if (Auth::id() === $post->user_id)

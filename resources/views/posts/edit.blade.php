@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div class="mb-4">
+        <a href="{{ route('posts.index') }}" class="btn btn-primary">投稿一覧へ戻る</a>
+    </div>
     <div class="row">
         <div class="card p-0">
             <div class="card-header bg-danger text-white">投稿を編集しましょう!</div>
@@ -11,14 +14,23 @@
                 @method('PATCH')
                 @csrf
                     <div class="form-group mb-4">
-                        <label>タイトル</label>
+                        <label class="h4">タイトル</label>
                         <input type="text" class="form-controller w-100 p-2" placeholder="タイトルを入力してください" name="title" value="{{ $post->title }}">
                         @if ($errors->first('title'))
                         <p class="text-danger">※{{$errors->first('title')}}</p>
                         @endif
                     </div>
+                    <div class="d-md-flex mb-4">
+                        <div class="col-md-8">
+                            <h4 class="mb-0">画像</h4>
+                            <img src="{{ '/storage/'.$post->image }}" class="post_img">
+                        </div>
+                        <div class="form-group mb-4">
+                            <input type="hidden" class="form-controller w-100" name="image" value="{{ $post->image}}">
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label>内容</label>
+                        <label class="h4">内容</label>
                         <textarea type="text" rows="8" class="form-controller w-100" placeholder="内容を入力してください" name="content">{{ $post->content }}</textarea>
                         @if ($errors->first('content'))
                         <p class="text-danger">※{{$errors->first('content')}}</p>
