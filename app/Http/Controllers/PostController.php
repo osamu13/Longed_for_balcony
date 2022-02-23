@@ -24,17 +24,13 @@ class PostController extends Controller
     public function store(PostRequest $request) {
         $post = new Post;
 
-        //インスタンスの作成
         $post->title = $request->title;
-        // /storage/app/publicに画像を保存
         $path = Storage::put('/public', $request->image);
-        //画像の名前をDBに入れる
         $path = explode('/', $path);
         $post->image = $path[1];
         $post->content = $request->content;
         $post->user_id = Auth::id();
 
-        //インスタンス保存
         $post->save();
 
         return redirect()->route('posts.index');
@@ -44,6 +40,10 @@ class PostController extends Controller
         $post = Post::find($id);
 
         $comments = Comment::where('post_id', $id)->orderBy('created_at', 'desc')->paginate(10);
+
+        if (!$post) {
+            return abort('404');
+        }
 
         return view('posts.show', compact('post', 'comments'));
     }
@@ -60,8 +60,9 @@ class PostController extends Controller
 
     public function update(PostRequest $request, $id) {
         $post = Post::find($id);
-        
+
         $post->title = $request->title;
+        $post->image = $request->image;
         $post->content = $request->content;
 
         $post->save();
