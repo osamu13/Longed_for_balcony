@@ -12,9 +12,18 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::latest('updated_at')->paginate(5);
+        $query = \Request::query();
 
-        return view('posts.index', compact('posts'));
+        if (isset($query['category_id'])) {
+            $posts = Post::latest('updated_at')->where('category_id', $query['category_id'])->paginate(5);
+            $category_query = $query['category_id'];
+    
+            return view('posts.index', compact('posts', 'category_query'));
+        } else {
+            $posts = Post::latest('updated_at')->paginate(5);
+    
+            return view('posts.index', compact('posts'));
+        }
     }
 
     public function create() {
@@ -25,6 +34,7 @@ class PostController extends Controller
         $post = new Post;
 
         $post->title = $request->title;
+        $post->category_id = $request->category_id;
         $path = Storage::put('/public', $request->image);
         $path = explode('/', $path);
         $post->image = $path[1];

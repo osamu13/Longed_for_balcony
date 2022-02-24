@@ -25,6 +25,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => 'required|max:25',
+            'category_id' =>'required' ,
             'image' => 'required',
             'content' => 'required',
         ];
@@ -35,6 +36,7 @@ class PostRequest extends FormRequest
         return [
             'title.required' => 'タイトルは必須になります!',
             'title.max' => 'タイトル25文字以内で入力してください!',
+            'category_id.required' => 'どちらか選択してください!',
             'image.required' => '画像は必須になります!',
             'content.required' => '内容は必須になります!',
         ];

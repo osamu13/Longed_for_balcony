@@ -21,6 +21,17 @@
                             @endif
                         </div>
                         <div class="form-group mb-4">
+                            <label class="h5">カテゴリ</label>
+                            <select name="category_id" class="form-control">
+                                <option value="">選択する</option>
+                                <option value="1">質問したい</option>
+                                <option value="2">自慢のバルコニーを見せたい</option>
+                            </select>
+                            @if ($errors->first('category_id'))
+                            <p class="text-danger">※{{$errors->first('category_id')}}</p>
+                            @endif
+                        </div>
+                        <div class="form-group mb-4">
                             <label class="h5">画像</label>
                             <input type="file" class="form-controller w-100" name="image" value="{{ old('image') }}">
                             @if ($errors->first('image'))
