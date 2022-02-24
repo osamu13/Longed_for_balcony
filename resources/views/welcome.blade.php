@@ -6,13 +6,10 @@
 
         <title>Longed-for balcony</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/common.css') }}" rel="stylesheet">
 
     </head>
     <body>
@@ -31,7 +28,7 @@
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 text-dark">登録</a>
                         @endif
-                        <a href="{{ route('login.guest') }}" class="ml-4 text-dark">ゲストログイン</a>
+                        <a href="{{ route('login.guest') }}" class="ml-4 text-dark">ゲストでログイン</a>
                         @endauth
                     </div>
                 @endif
