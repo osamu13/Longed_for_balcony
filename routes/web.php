@@ -28,4 +28,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/posts/search', 'PostController@search')->name('posts.search');
     Route::resource('posts', 'PostController');
     Route::resource('comments', 'CommentController', ['only' => ['store', 'destroy']]);
+    Route::resource('users', 'UserController', ['only' => ['show']]);
 });
