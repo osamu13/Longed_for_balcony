@@ -39,7 +39,7 @@
                     <p class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</p>
                 </div>
                 <div class="d-md-flex mb-3">
-                    <p class="card-text mb-0">投稿者：{{ $post->user->name }}</p>
+                    <p class="card-text mb-0">投稿者：<a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}</a></p>
                     <p class="card-text mb-0 mx-md-3">投稿日：{{ $post->created_at }}</p>
                     <p class="card-text mb-0 mx-md-3">更新日：{{ $post->updated_at }}</p>
                 </div>
@@ -48,6 +48,9 @@
                         <img src="{{ '/storage/'.$post->image }}" alt="" class="post_img">
                     </div>
                     <div class="col-lg-4">
+                        <h5 class="card-text mb-3">カテゴリ：
+                            <a href="{{ route('posts.index', ['category_id' => $post->category_id]) }}" class="text-decoration-none">{{ $post->category->category_name }}</a>
+                        </h5>
                         <h5 class="card-text content mb-3">{{ $post->content }}</h5>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">コメントして！</a>
                     </div>
@@ -56,6 +59,8 @@
             @endforeach
             @if (isset($search_query))
             {{ $posts->appends(['search' => $search_query])->links() }}
+            @elseif (isset($category_query))
+            {{ $posts->appends(['category_id' => $category_query])->links() }}
             @else
             {{ $posts->links() }}
             @endif
