@@ -12,10 +12,10 @@ class RegisterControllerTest extends TestCase
     use RefreshDatabase;
    
     /** @test */
-    public function ユーザー登録画面のURLにアクセスしてユーザー登録画面が表示される()
+    public function ユーザー登録画面にアクセスしてユーザー登録画面が表示される()
     {
         $response = $this->get(route('register'));
-        $response->assertViewIs('auth.register');
+        $response->assertStatus(200)->assertViewIs('auth.register');
     }
 
     /** @test */
