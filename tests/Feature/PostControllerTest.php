@@ -136,8 +136,10 @@ class PostControllerTest extends TestCase
         $post = Post::factory()->create([
             'user_id' => $user->id,
         ]);
+        dd($post);
         $data = [
             'title'=>$post->title, 
+            'category_id'=>$post->category_id, 
             'image'=>$post->image, 
             'content'=>$post->content, 
             'user_id' => $post->user_id
@@ -160,5 +162,4 @@ class PostControllerTest extends TestCase
         $response = $this->delete(route('posts.destroy', $post->id));
         $response->assertRedirect('posts');
     }
-
 }

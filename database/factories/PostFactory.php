@@ -21,6 +21,7 @@ class PostFactory extends Factory
 
         return [
             'title' => $this->faker->realText(rand(10,25)),
+            'category_id' => $this->faker->numberBetween(1,2),
             'image' => $file, 
             'content' => $this->faker->realText(rand(10,100)),
         ];

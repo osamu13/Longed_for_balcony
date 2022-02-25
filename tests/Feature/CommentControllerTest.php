@@ -22,7 +22,7 @@ class CommentControllerTest extends TestCase
         $user = User::factory()->create();
         $this->actingAs($user);
         $post = Post::factory()->create([
-            'user_id'=>$user->id
+            'user_id'=>$user->id,
         ]);
         $comment = Comment::factory()->create([
             'post_id'=>$post->id,
