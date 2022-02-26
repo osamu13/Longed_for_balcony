@@ -136,7 +136,7 @@ class PostControllerTest extends TestCase
         $post = Post::factory()->create([
             'user_id' => $user->id,
         ]);
-        dd($post);
+        
         $data = [
             'title'=>$post->title, 
             'category_id'=>$post->category_id, 

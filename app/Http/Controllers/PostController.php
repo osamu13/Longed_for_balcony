@@ -21,7 +21,6 @@ class PostController extends Controller
             return view('posts.index', compact('posts', 'category_query'));
         } else {
             $posts = Post::latest('updated_at')->paginate(5);
-    
             return view('posts.index', compact('posts'));
         }
     }
@@ -88,8 +87,7 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function search(SearchRequest $request)
-    {
+    public function search(SearchRequest $request){
         $posts = Post::where('title', 'LIKE', '%'.$request->search.'%')
                        ->orWhere('content', 'LIKE', '%'.$request->search.'%')
                        ->paginate(5);
