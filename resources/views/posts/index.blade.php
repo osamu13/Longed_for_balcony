@@ -6,11 +6,16 @@
         <h2 class="catch_copy">ベランダ・バルコニー、オシャレできていますか？<br>投稿して意見をもらおう！</h2>
     </div>
     <div class="my-4">
-        <a href="{{ route('posts.create') }}" class="btn btn-primary">投稿したい人はこちらから！</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary"><span class="h5">投稿したい人はこちらから！</span></a>
     </div>
     <div class="card p-4 mb-4 card-body-bg">
-        <div class="col-md-4 col-md-offset-3">
-        <a href="{{ route('posts.index') }}" class="btn return-posts mb-4">投稿一覧に戻る</a>
+        <div class="col-md-6">
+            <a href="{{ route('posts.index') }}" class="btn return-posts mb-4">ホームに戻る</a>
+            @if (isset($category_query) && $category_query == 1) 
+            <h2 class="mb-3"><span class="text-danger">カテゴリ：質問</span><span class="mx-2"></span>の投稿一覧です</h2>
+            @elseif (isset($category_query) && $category_query == 2)
+            <h2 class="mb-3"><span class="text-danger">カテゴリ：参考</span><span class="mx-2"></span>の投稿一覧です</h2>
+            @endif
             <h4 class="search-form-title">検索フォーム</h4>
             <form action="{{ route('posts.search') }}" class="search-form mb-4" method="GET">
                 <div class="form-group has-feedback d-flex">
@@ -27,6 +32,8 @@
             <h5 class="m-0">{{ $posts_result }}</h5>
             @endif
         </div>
+        <h5>※投稿者の名前を押すと、その投稿者が投稿したものが全て見れるよ！</h5>
+        <h5>※カテゴリの名前を押すと、そのカテゴリの投稿一覧が見れるよ！</h5>
     </div>
     <div class="card">
         <div class="card-header bg-success text-white h2">このバルコニー・ベランダには何が合う？</div>
@@ -35,13 +42,13 @@
             @foreach ($posts as $post)
             <div class="card-body pb-3">
                 <div class="d-flex align-items-center mb-2">
-                    <h4 class="card-title m-0">{{ $post->title }}</h4>
-                    <p class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</p>
+                    <h3 class="card-title m-0">{{ $post->title }}</h3>
+                    <h5 class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</h4>
                 </div>
-                <div class="d-md-flex mb-3">
-                    <p class="card-text mb-0">投稿者：<a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}</a></p>
-                    <p class="card-text mb-0 mx-md-3">投稿日：{{ $post->created_at }}</p>
-                    <p class="card-text mb-0 mx-md-3">更新日：{{ $post->updated_at }}</p>
+                <div class="d-lg-flex mb-3">
+                    <h5 class="card-text mb-2">投稿者：<a href="{{ route('users.show', $post->user_id) }}">{{ $post->user->name }}</a></h5>
+                    <p class="card-text mb-0 mx-lg-3">投稿日：{{ $post->created_at }}</p>
+                    <p class="card-text mb-0 mx-lg-3">更新日：{{ $post->updated_at }}</p>
                 </div>
                 <div class="d-lg-flex justify-content-center">
                     <div class="mb-4 col-lg-8">

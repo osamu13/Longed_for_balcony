@@ -7,9 +7,9 @@
     </div>
     <div class="row">
         <div class="card p-0">
-            <div class="card-header bg-danger text-white">投稿を編集しましょう!</div>
+            <div class="card-header bg-danger text-white h2">投稿を編集しましょう!</div>
 
-            <div class="card-body">
+            <div class="card-body card-body-bg">
                 <form action="{{ route('posts.update', $post->id) }}" method="POST">
                 @method('PATCH')
                 @csrf
@@ -19,6 +19,9 @@
                         @if ($errors->first('title'))
                         <p class="text-danger">※{{$errors->first('title')}}</p>
                         @endif
+                    </div>
+                    <div class="form-group mb-4">
+                        <input type="hidden" class="form-controller" name="category_id" value="{{ $post->category_id }}">
                     </div>
                     <div class="d-md-flex mb-4">
                         <div class="col-md-8">
@@ -36,7 +39,7 @@
                         <p class="text-danger">※{{$errors->first('content')}}</p>
                         @endif
                     </div>
-                    <button type="submit" class="btn btn-primary">更新する</button>
+                    <button type="submit" class="btn btn-primary mt-3">更新する</button>
                 </form>
             </div>
         </div>
