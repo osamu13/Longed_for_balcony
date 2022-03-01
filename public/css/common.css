@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
+body {
+    font-family: 'Klee One', cursive;
+}
+
+main {
+    background-image: url(../img/main_bg.png);
+}
+
+.catch_copy {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    color: #FF9900;
+}
+
+.return-posts {
+    background-color: #87CEFA;
+    font-weight: bold;
+}
+
+.search-form-title {
+    font-family: 'Yuji Mai', serif;
+}
+
+.card-header {
+    font-family: 'Yomogi', cursive;
+    font-weight: 700;
+}
+
+.card-body-bg {
+    background-color: #FFFAF0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.content {
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.post_img {
+    width: 80%;
+}
+@media screen and (max-width: 991px) {
+    .post_img {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .post_img {
+        width: 100%;
+    }
+}
+
+.comment-header-bg {
+    background-color: #78FF94;
+}
+
+.liked {
+    color: red;
+}
+
+.fa-heart {
+    font-size: 2.0rem;
+}
