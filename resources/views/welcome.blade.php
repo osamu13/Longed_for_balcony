@@ -15,9 +15,9 @@
     <body>
         <header class="d-md-flex bg-white align-items-center justify-content-md-between">
             <div>
-                <h1 class="header_title m-0 pl-2">Longed-for balcony</h1>
+                <h1 class="header_title text-center m-0 pl-md-5">Longed-for balcony</h1>
             </div>
-            <div>
+            <div class="text-center pr-md-5">
                 @if (Route::has('login'))
                     <div class="px-6 py-4 pr-3">
                         @auth
