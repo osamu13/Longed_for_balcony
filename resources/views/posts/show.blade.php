@@ -22,6 +22,7 @@
                 <div class="col-lg-4 mb-4">
                     <h4>内容</h4>
                     <h5 class="card-text content">{{ $post->content }}</h5>
+                    <like-component :post="{{ json_encode($post)}}"></like-component>
                 </div>
             </div>
             <div class="d-flex">

@@ -29,7 +29,7 @@
                 @endif
             </form>
             @if (isset($posts_result))
-            <h5 class="m-0">{{ $posts_result }}</h5>
+            <h4 class="mb-4 text-danger">{{ $posts_result }}</h4>
             @endif
         </div>
         <h5>※投稿者の名前を押すと、その投稿者が投稿したものが全て見れるよ！</h5>
@@ -60,6 +60,7 @@
                         </h5>
                         <h5 class="card-text content mb-3">{{ $post->content }}</h5>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">コメントして！</a>
+                        <like-component :post="{{ json_encode($post)}}"></like-component>
                     </div>
                 </div>
             </div>
