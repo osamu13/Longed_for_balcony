@@ -1,4 +1,4 @@
-@extends('layouts.common')
+@extends('layouts.chart')
 
 @section('content')
 <div class="container">
@@ -9,8 +9,17 @@
         <a href="{{ route('posts.create') }}" class="btn btn-primary">投稿したい人はこちらから！</a>
     </div>
     <div class="card p-4 mb-4 card-body-bg">
-        <div class="col-md-4">
+        <div class="">
             <a href="{{ route('posts.index') }}" class="btn return-posts mb-4">投稿一覧に戻る</a>
+        </div>
+        <div>
+            <h4 class="text-danger">{{ $user->name }}さんのパラメーター</h4>
+            @if (isset($user->last_login_at))
+            <h5>最終ログイン日時：{{ $user->last_login_at }}</h5>
+            @endif
+            <div class="col-md-5">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
     <div class="card">
@@ -20,11 +29,11 @@
             @foreach ($posts as $post)
             <div class="card-body pb-5">
                 <div class="d-flex align-items-center mb-2">
-                    <h4 class="card-title m-0">{{ $post->title }}</h4>
-                    <p class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</p>
+                    <h3 class="card-title m-0">{{ $post->title }}</h3>
+                    <h5 class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</h5>
                 </div>
                 <div class="d-md-flex mb-3">
-                    <p class="card-text mb-0">投稿者：{{ $post->user->name }}</p>
+                    <h4 class="card-text mb-0">投稿者：{{ $post->user->name }}</h4>
                     <p class="card-text mb-0 mx-md-3">投稿日：{{ $post->created_at }}</p>
                     <p class="card-text mb-0 mx-md-3">更新日：{{ $post->updated_at }}</p>
                 </div>
@@ -38,6 +47,7 @@
                         </h5>
                         <h5 class="card-text content mb-3">{{ $post->content }}</h5>
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">コメントして！</a>
+                        <like-component :post="{{ json_encode($post)}}"></like-component>
                     </div>
                 </div>
             </div>
