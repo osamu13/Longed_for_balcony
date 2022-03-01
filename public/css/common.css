@@ -60,3 +60,11 @@ main {
 .comment-header-bg {
     background-color: #78FF94;
 }
+
+.liked {
+    color: red;
+}
+
+.fa-heart {
+    font-size: 2.0rem;
+}

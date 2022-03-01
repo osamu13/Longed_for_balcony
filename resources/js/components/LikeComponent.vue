@@ -1,12 +1,8 @@
 <template>
-    <div class="mt-4">
-        <button @click="unlike()" v-if="result">
-            いいね解除
-        </button>
-        <button @click="like()" v-else>
-            いいね
-        </button>
-        <p>いいね数：{{ count }}</p>
+    <div class="d-flex my-4">
+        <i class="fa-solid fa-heart liked" @click="unlike()" v-if="result"></i>
+        <i class="fa-solid fa-heart" @click="like()" v-else></i>
+        <h5 class="mx-3">{{ count }}</h5>
     </div>
 </template>
 
