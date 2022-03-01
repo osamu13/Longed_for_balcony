@@ -60,7 +60,9 @@
                         </h5>
                         <h5 class="card-text content mb-3">{{ $post->content }}</h5>      
                         <a href="{{ route('posts.show', $post->id) }}" class="btn btn-primary">コメントして！</a>
+                        @if ($post->category_id === 2)
                         <like-component :post="{{ json_encode($post)}}"></like-component>
+                        @endif
                     </div>
                 </div>
             </div>

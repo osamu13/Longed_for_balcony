@@ -72,12 +72,6 @@
   }
 }
 
-main {
-  position: relative;
-  height: 92vh;
-  background-image: url('../img/main_bg.png');
-  z-index: -100;
-}
 
 body {
   margin: 0;

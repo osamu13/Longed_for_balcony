@@ -25,7 +25,9 @@
                 <div class="col-lg-4 mb-4">
                     <h4>内容</h4>
                     <h5 class="card-text content">{{ $post->content }}</h5>
+                    @if ($post->category_id === 2)
                     <like-component :post="{{ json_encode($post)}}"></like-component>
+                    @endif
                 </div>
             </div>
             <div class="d-flex">
@@ -62,7 +64,7 @@
             <div class="card-header comment-header-bg h5">投稿者：{{ $comment->user->name }}</div>
             <div class="card-body card-body-bg">
                 <p class="card-title mb-4">投稿日：{{ $comment->created_at }}</p>
-                <h5 class="card-text">{{ $comment->content }}</h5>
+                <h5 class="card-text mb-4">{{ $comment->content }}</h5>
                 @if (Auth::id() === $comment->user_id)
                 <form action="{{ route('comments.destroy', $comment->id) }}" method="POST">
                     @csrf
