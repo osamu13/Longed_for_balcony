@@ -28,9 +28,9 @@
         <div class="card-body-bg">
             @foreach ($posts as $post)
             <div class="card-body pb-5">
-                <div class="d-flex align-items-center mb-2">
-                    <h3 class="card-title m-0">{{ $post->title }}</h3>
-                    <h5 class="d-inline mb-0 mx-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</h5>
+                <div class="d-md-flex align-items-center mb-2">
+                    <h3 class="card-title mb-2">{{ $post->title }}</h3>
+                    <h5 class="d-inline mb-0 mx-md-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</h5>
                 </div>
                 <div class="d-md-flex mb-3">
                     <h4 class="card-text mb-0">投稿者：{{ $post->user->name }}</h4>
