@@ -17,6 +17,7 @@
     <link href="{{ asset('css/common.css') }}" rel="stylesheet">
     
     <script src="https://kit.fontawesome.com/97f5cac552.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div id="app">
