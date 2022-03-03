@@ -29,6 +29,6 @@
 
 
 ### デプロイする上で参考にしたサイト
-* ec2にgit cloneできない場合
+* ec2にgit cloneできない場合の対処法
   * https://www.utakata.work/entry/2019/06/21/174709#%E3%82%A8%E3%83%A9%E3%83%BC%E5%86%85%E5%AE%B9
-* 
+  * https://qiita.com/Hide-Zaemon/items/400b21183197481ecef4
