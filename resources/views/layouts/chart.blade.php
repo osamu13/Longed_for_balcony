@@ -13,8 +13,16 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/common.css') }}" rel="stylesheet">
+    @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @endif
+    @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ secure_asset('css/common.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    @endif
     
     <script src="https://kit.fontawesome.com/97f5cac552.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
