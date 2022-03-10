@@ -8,6 +8,7 @@ https://longedforbalcony.com/
 
 ### 使用技術
 * Laravel
+* Bootstrap
 * AWS(EC2,RDS)
 * Vue.js
 * Chart.js
