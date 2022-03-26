@@ -6,7 +6,7 @@
         <h2 class="catch_copy">{{ $user->name }}さんの投稿</h2>
     </div>
     <div class="my-4">
-        <a href="{{ route('posts.create') }}" class="btn btn-primary">投稿したい人はこちらから！</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary"><span class="h5">投稿したい人はこちらから！</span></a>
     </div>
     <div class="card p-4 mb-4 card-body-bg">
         <div class="">

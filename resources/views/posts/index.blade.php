@@ -32,8 +32,16 @@
             <h4 class="mb-4 text-danger">{{ $posts_result }}</h4>
             @endif
         </div>
-        <h5>※投稿者の名前を押すと、その投稿者が投稿したものが全て見れるよ！</h5>
-        <h5>※カテゴリの名前を押すと、そのカテゴリの投稿一覧が見れるよ！</h5>
+        <div class="mb-4">
+            <h4>カテゴリ検索</h4>
+            <div class="h4">
+                <a href="{{ route('posts.index', ['category_id' => 1]) }}">質問</a>
+            </div>
+            <div class="h4">
+                <a href="{{ route('posts.index', ['category_id' => 2]) }}">参考</a>
+            </div>
+        </div>
+        <h5>※投稿者の名前を押すと、その投稿者が投稿した全ての投稿が見れます！</h5>
     </div>
     <div class="card">
         <div class="card-header bg-success text-white h2">このバルコニー・ベランダには何が合う？</div>
