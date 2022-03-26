@@ -25,7 +25,7 @@
                     </button>
             	</div>
                 @if ($errors->first('search'))
-                <p class="text-danger">※{{$errors->first('search')}}</p>
+                <p class="h4 text-danger">※{{$errors->first('search')}}</p>
                 @endif
             </form>
             @if (isset($posts_result))

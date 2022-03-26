@@ -82,7 +82,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 auth-function">
             @yield('content')
         </main>
     </div>

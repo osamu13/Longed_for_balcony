@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <header class="d-md-flex bg-white align-items-center justify-content-md-between">
+        <header class="lp-header d-md-flex bg-white align-items-center justify-content-md-between">
             <div>
                 <h1 class="header_title text-center m-0 pl-md-5">Longed-for balcony</h1>
             </div>
@@ -50,7 +50,7 @@
             </div>
         </main>
 
-        <footer>
+        <footer class="lp-footer">
             <p class="m-0 text-center bg-white">© 2022 osamurakouhei</p>
         </footer>
 
