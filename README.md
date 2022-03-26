@@ -22,7 +22,7 @@ https://longedforbalcony.com/
 
 #### ・投稿の編集・削除機能
 1.　「過去の投稿」をクリックする。<br>
-<img width="586" alt="スクリーンショット 2022-03-26 23 47 30" src="https://user-images.githubusercontent.com/67495262/160244722-4bc4bfe6-0f88-49c4-802e-51d70cc1f31c.png">
+<img width="586" alt="スクリーンショット 2022-03-26 23 47 30" src="https://user-images.githubusercontent.com/67495262/160244722-4bc4bfe6-0f88-49c4-802e-51d70cc1f31c.png"><br>
 2.　編集、削除ボタンを押す。<br>
 <img width="586" alt="スクリーンショット 2022-03-26 23 49 57" src="https://user-images.githubusercontent.com/67495262/160244810-bfed9c8e-adb4-42d8-b6b7-7e267b50ba6e.png">
 
