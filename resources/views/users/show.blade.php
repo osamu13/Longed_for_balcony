@@ -51,6 +51,16 @@
                         <like-component :post="{{ json_encode($post)}}"></like-component>
                         @endif
                     </div>
+                    <div class="d-flex mt-4">
+                        @if (Auth::id() === $post->user_id)
+                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">編集する</a>
+                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="mx-5">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="削除する" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">
+                        </form>
+                        @endif
+                    </div>
                 </div>
             </div>
             @endforeach

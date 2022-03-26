@@ -8,6 +8,9 @@
     <div class="my-4">
         <a href="{{ route('posts.create') }}" class="btn btn-primary"><span class="h5">投稿したい人はこちらから！</span></a>
     </div>
+    <div class="my-4">
+        <a class="btn btn-danger" href="{{ route('users.show', Auth::id()) }}"><span class="h5">自分の過去の投稿</span></a>
+    </div>
     <div class="card p-4 mb-4 card-body-bg">
         <div class="col-md-6">
             <a href="{{ route('posts.index') }}" class="btn return-posts mb-4">ホームに戻る</a>
