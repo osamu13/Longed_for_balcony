@@ -32,10 +32,10 @@
                     <h3 class="card-title mb-2">{{ $post->title }}</h3>
                     <h5 class="d-inline mb-0 mx-md-4 rounded">コメント数：<span class="text-danger">{{ $post->comments->count() }}</span>件</h5>
                 </div>
-                <div class="d-md-flex mb-3">
+                <div class="d-lg-flex mb-3">
                     <h4 class="card-text mb-0">投稿者：{{ $post->user->name }}</h4>
-                    <p class="card-text mb-0 mx-md-3">投稿日：{{ $post->created_at }}</p>
-                    <p class="card-text mb-0 mx-md-3">更新日：{{ $post->updated_at }}</p>
+                    <p class="card-text mb-0 mx-lg-3">投稿日：{{ $post->created_at }}</p>
+                    <p class="card-text mb-0 mx-lg-3">更新日：{{ $post->updated_at }}</p>
                 </div>
                 <div class="d-lg-flex justify-content-center">
                     <div class="mb-4 col-lg-8">
